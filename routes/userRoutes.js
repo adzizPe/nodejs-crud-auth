@@ -17,6 +17,6 @@ router.put('/profile', updateUser);
 router.delete('/profile', deleteUser);
 
 // Route for creating a new user (if needed)
-router.post('/users', createUser);
+router.post('/profile', createUser);
 
 module.exports = router;
