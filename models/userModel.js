@@ -29,5 +29,13 @@ const deleteUser = async (id) => {
     throw err;
   }
 };
+const create = async ({ name, email, password }) => {
+  try {
+    const [result] = await db.query('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', [name, email, password]);
+    return { id: result.insertId, name, email };
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
 
-module.exports = { findById, update, deleteUser };
+module.exports = { findById, update, deleteUser , create};

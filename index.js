@@ -40,7 +40,7 @@ testConnection();
 
 // Define routes
 app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes); // Update route to be more specific to /users
+app.use('/api', userRoutes);
 
 // Default route
 app.get('/', (req, res) => {

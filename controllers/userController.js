@@ -12,12 +12,19 @@ const getUsers = async (req, res) => {
 };
 const createUser = async (req, res) => {
   try {
-      const { name, email, password } = req.body;
-      const newUser = await User.create({ name, email, password });
-      
-      res.status(201).json({ message: 'User created successfully', newUser });
+    const { name, email, password } = req.body;
+
+    // Validasi input jika diperlukan
+    if (!name || !email || !password) {
+      return res.status(400).json({ error: 'Name, email, and password are required' });
+    }
+
+    // Membuat pengguna baru
+    const newUser = await User.create({ name, email, password });
+    
+    res.status(201).json({ message: 'User created successfully', newUser });
   } catch (error) {
-      res.status(500).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
