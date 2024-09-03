@@ -69,24 +69,24 @@ Tugas ini adalah sebuah proyek backend yang memungkinkan pengguna untuk melakuka
         "email": "email@contoh.com",
         "password": "password",
         "created_at": "2024-09-01T15:42:40.000Z"
+        }
     }
-    }
-     ```
+    ```
 
- 2. **Operasi CRUD**:
+2. **Operasi CRUD**:
    - **Create**: Kirim permintaan POST ke `http://localhost:5000/api/profile` dengan body:
    ```json
-    {
+   {
     "message": "User created successfully",
     "newUser": {
         "id": ,
         "name": "Nama Pengguna Baru",
         "email": "email@contoh.com"
+          }   
     }
-    }
-    ``` 
+    ```
 
- 3. **Read**: Kirim permintaan GET ke `http://localhost:5000/api/profile` untuk mendapatkan semua data pengguna.
+ 4. **Read**: Kirim permintaan GET ke `http://localhost:5000/api/profile` untuk mendapatkan semua data pengguna.
    ```json
    {
     "message": "User fetched successfully!",
@@ -97,17 +97,17 @@ Tugas ini adalah sebuah proyek backend yang memungkinkan pengguna untuk melakuka
         "password": "password",
         "created_at": "2024-09-01T15:42:40.000Z"
     }
-    }       
+    }
     ```
 
- 4. **Update**: Kirim permintaan PUT ke `http://localhost:5000/api/profile` dengan body:
+5. **Update**: Kirim permintaan PUT ke `http://localhost:5000/api/profile` dengan body:
      ```json
     {
     "message": "User updated successfully!"
     }
-    ```     
+    ``` 
 
- 5. **Delete**: Kirim permintaan DELETE ke `http://localhost:5000/api/profile` untuk menghapus data pengguna berdasarkan ID.
+6. **Delete**: Kirim permintaan DELETE ke `http://localhost:5000/api/profile` untuk menghapus data pengguna berdasarkan ID.
     ```json
     {
     "message": "User deleted successfully!"
