@@ -1,18 +1,22 @@
 const express = require('express');
-const { createUser, getUsers, updateUser, deleteUser } = require('../controllers/userController');
-const authMiddleware = require('../middleware/authMiddleware');
+const { getUsers, updateUser, deleteUser, createUser } = require('../controllers/userController');
+const authMiddleware = require('../middleware/authMiddleware'); // Ensure this path is correct
 
 const router = express.Router();
 
-// Middleware untuk melindungi endpoint dengan JWT
-// router.use(authMiddleware); // Jika diperlukan
+// Middleware for protected routes
+router.use(authMiddleware);
 
-// Endpoint untuk menambahkan pengguna baru
+// Get user profile
+router.get('/profile', getUsers);
+
+// Update user profile
+router.put('/profile', updateUser);
+
+// Delete user profile
+router.delete('/profile', deleteUser);
+
+// Route for creating a new user (if needed)
 router.post('/users', createUser);
-
-// Endpoint lainnya
-router.get('/profile', authMiddleware, getUsers);
-router.put('/profile', authMiddleware, updateUser);
-router.delete('/profile', authMiddleware, deleteUser);
 
 module.exports = router;
