@@ -64,12 +64,12 @@ Tugas ini adalah sebuah proyek backend yang memungkinkan pengguna untuk melakuka
     {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTcyNTM3ODIyNywiZXhwIjoxNzI1MzgxODI3fQ.Ta00_KZ2RyTVkZ_f-lpc8lbbhX1-g_ogsjzqnYttW5w",
     "user": {
-        "id": ,
-        "name": "Nama Pengguna",
-        "email": "email@contoh.com",
-        "password": "password",
-        "created_at": "2024-09-01T15:42:40.000Z"
-        }
+            "id": ,
+            "name": "Nama Pengguna",
+            "email": "email@contoh.com",
+            "password": "password",
+            "created_at": "2024-09-01T15:42:40.000Z"
+            }
     }
     ```
 
