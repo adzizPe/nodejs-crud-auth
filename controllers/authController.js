@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
+const pool = require('../config/db');
 
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -13,18 +14,26 @@ const registerUser = async (req, res) => {
   }
 };
 
-const loginUser = async (req, res) => {
+const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findByEmail(email); // Ensure `findByEmail` is implemented
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
+    // Find user by email
+    const [rows] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+    const user = rows[0];
+    
+    if (!user) return res.status(401).json({ error: 'Invalid email or password' });
+
+    // Compare passwords
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(401).json({ error: 'Invalid email or password' });
+
+    // Generate JWT token
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    
+    res.json({ token, user });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, login };
