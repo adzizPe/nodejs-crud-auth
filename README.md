@@ -62,13 +62,15 @@ Tugas ini adalah sebuah proyek backend yang memungkinkan pengguna untuk melakuka
    - **Login**: Kirim permintaan POST ke `http://localhost:5000/api/auth/login` dengan body:
      ```json
     {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTcyNTM3ODIyNywiZXhwIjoxNzI1MzgxODI3fQ.Ta00_KZ2RyTVkZ_f-lpc8lbbhX1-g_ogsjzqnYttW5w",
-        "id": ,
-        "name": "Nama Pengguna",
-        "email": "email@contoh.com",
-        "password": "password",
-        "created_at": "2024-09-01T15:42:40.000Z"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTcyNTM3ODIyNywiZXhwIjoxNzI1MzgxODI3fQ.Ta00_KZ2RyTVkZ_f-lpc8lbbhX1-g_ogsjzqnYttW5w",
+    "user": {
+    "id": 19,
+    "name": "Nama Pengguna",
+    "email": "email@contoh.com",
+    "password": "password",
+    "created_at": "2024-09-01T15:42:40.000Z"
     }
+    }   
     ```
 
 2. **Operasi CRUD**:
